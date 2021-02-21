@@ -1,0 +1,14 @@
+.ridePage {
+  height: auto;
+  background: linear-gradient(to bottom, #fafafa 0%, #67ec8f 100%);
+}
+
+.nextRideContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  margin-top: 2rem;
+}

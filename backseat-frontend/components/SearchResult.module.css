@@ -1,0 +1,17 @@
+.imageColumn {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.imageColumn img {
+  background-color: #67ec8f;
+  border-radius: 50%;
+}
+
+.timeColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #67ec8f;
+}

@@ -1,0 +1,27 @@
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.heroLeft {
+  min-height: 100%;
+  background-color: #67ec8f;
+
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroRight {
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(to bottom, #fafafa 0%, #67ec8f 100%);
+}

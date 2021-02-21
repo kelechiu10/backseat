@@ -1,0 +1,15 @@
+{
+  "name": "Jane Smith",
+  "rides": [
+    {
+      "rideID": "8",
+      "sharerUid": "12347",
+      "sharerName": "Jane Smith",
+      "startLocation": "Whoknows",
+      "endLocation": "Where",
+      "departureTime": "2021-03-21 01:00:00 PM",
+      "passengers": 2,
+      "maxOccupancy": 5
+    }
+  ]
+}

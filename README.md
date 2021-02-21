@@ -1,2 +1,3 @@
-# ridesurf
-SDHacks2021 Submission
+# Team KAM
+
+SDHacks 2021 Submission

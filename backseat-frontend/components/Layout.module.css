@@ -1,0 +1,32 @@
+.button {
+  margin-left: 20px;
+}
+
+.navbar {
+  min-height: 4rem;
+  box-shadow: 0px 3px 3px #000000;
+}
+
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  height: 100vh;
+  max-height: 150vh;
+}
+
+.layoutFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  height: auto;
+  text-align: center;
+  color: white;
+  background-color: #343a40;
+}
+
+.layoutFooter p {
+  min-height: 10rem;
+  margin: 3rem;
+}

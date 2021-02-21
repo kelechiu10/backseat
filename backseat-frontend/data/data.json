@@ -1,0 +1,82 @@
+[
+  {
+    "rideID": 1,
+    "sharerUid": "12345",
+    "sharerName": "John Smith",
+    "startLocation": "Whoknows",
+    "endLocation": "Where",
+    "departureTime": "2021-03-21 12:00:00 PM",
+    "passengers": 1,
+    "maxOccupancy": 2
+  },
+  {
+    "rideID": 2,
+    "sharerUid": "12346",
+    "sharerName": "Jane Doe",
+    "startLocation": "Whoknows",
+    "endLocation": "Where",
+    "departureTime": "2021-03-21 12:00:00 PM",
+    "passengers": 2,
+    "maxOccupancy": 3
+  },
+  {
+    "rideID": 3,
+    "sharerUid": "12347",
+    "sharerName": "Jane Smith",
+    "startLocation": "Far",
+    "endLocation": "Where",
+    "departureTime": "2021-03-21 01:00:00 PM",
+    "passengers": 2,
+    "maxOccupancy": 5
+  },
+  {
+    "rideID": 4,
+    "sharerUid": "12348",
+    "sharerName": "John Doe",
+    "startLocation": "Near",
+    "endLocation": "There",
+    "departureTime": "2021-03-21 02:00:00 PM",
+    "passengers": 1,
+    "maxOccupancy": 2
+  },
+  {
+    "rideID": 5,
+    "sharerUid": "12345",
+    "sharerName": "John Smith",
+    "startLocation": "Whoknows",
+    "endLocation": "Here",
+    "departureTime": "2021-03-21 12:00:00 PM",
+    "passengers": 1,
+    "maxOccupancy": 2
+  },
+  {
+    "rideID": 6,
+    "sharerUid": "12346",
+    "sharerName": "Jane Doe",
+    "startLocation": "Whoknows",
+    "endLocation": "Where",
+    "departureTime": "2021-03-21 12:00:00 PM",
+    "passengers": 2,
+    "maxOccupancy": 3
+  },
+  {
+    "rideID": 7,
+    "sharerUid": "12347",
+    "sharerName": "Jane Smith",
+    "startLocation": "Whoknows",
+    "endLocation": "There",
+    "departureTime": "2021-03-21 01:00:00 PM",
+    "passengers": 2,
+    "maxOccupancy": 5
+  },
+  {
+    "rideID": 8,
+    "sharerUid": "12348",
+    "sharerName": "John Doe",
+    "startLocation": "Some",
+    "endLocation": "Where",
+    "departureTime": "2021-03-21 02:00:00 PM",
+    "passengers": 1,
+    "maxOccupancy": 2
+  }
+]
