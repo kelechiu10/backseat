@@ -2,13 +2,14 @@
 
 // declares firebase
 const firebase = require('firebase/app');
+const key = require('./auth.json').firebase_key;
 
 //authentication libraries
 
 require('firebase/auth');
 //link firebase to the project
 var firebaseConfig = {
-    apiKey: "AIzaSyBrCjW8cjmujI_DdIUX-KE9-p39PDAILBc",
+    apiKey: key,
     authDomain: "ridesurf-53842.firebaseapp.com",
     projectId: "ridesurf-53842",
     storageBucket: "ridesurf-53842.appspot.com",
