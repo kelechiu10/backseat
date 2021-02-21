@@ -2,10 +2,12 @@ import styles from "./RidesPage.module.css";
 import NextRideCard from "./NextRideCard";
 import SearchContainer from "./SearchContainer";
 import moment from "moment";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 const clock = moment();
+const ax = axios();
 
 export default function RidesPage({ userInfo }) {
   const [timeLeft, setTimeLeft] = useState(
@@ -27,7 +29,6 @@ export default function RidesPage({ userInfo }) {
           <Container className={styles.nextRideContainer}>
             {userInfo.rides ? (
               <>
-                <h2>Your next ride is in {clock.toNow(userInfo.rides[0])}.</h2>
                 <Col md={6} sm={10} data-aos="zoom-in">
                   <NextRideCard />
                 </Col>{" "}

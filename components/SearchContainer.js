@@ -1,5 +1,6 @@
 import styles from "./SearchContainer.module.css";
 import SearchResult from "./SearchResult";
+import axios from "axios";
 import { useState } from "react";
 import {
   Container,
@@ -12,29 +13,40 @@ import {
 } from "react-bootstrap";
 
 import data from "../data/data.json";
+const ngrokURL = "https://8bedfcf472d6.ngrok.io/";
 
 export default function SearchContainer() {
+  const [loading, setLoading] = useState(false);
   const [startLoc, setStartLoc] = useState("");
   const [endLoc, setEndLoc] = useState("");
   const [results, setResults] = useState(data);
 
-  console.log("INITIAL DEBUG:", results, typeof results);
+  const handleFind = async () => {
+    setLoading(true);
+    axios
+      .get("https://8bedfcf472d6.ngrok.io/rides")
+      .then((response) => {
+        let res = response.data;
+        if (!startLoc && !endLoc) {
+          setResults(res);
+        } else if (!endLoc) {
+          setResults(res.filter((e) => e.startLocation === startLoc));
+        } else if (!startLoc) {
+          setResults(res.filter((e) => e.endLocation === endLoc));
+        } else {
+          setResults(
+            res.filter(
+              (e) => e.startLocation === startLoc && e.endLocation === endLoc
+            )
+          );
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setResults([]);
+      });
 
-  const handleFind = () => {
-    console.log("DEBUG:", startLoc, endLoc);
-    if (!startLoc && !endLoc) {
-      setResults(data);
-    } else if (!endLoc) {
-      setResults(data.filter((e) => e.startLocation === startLoc));
-    } else if (!startLoc) {
-      setResults(data.filter((e) => e.endLocation === endLoc));
-    } else {
-      setResults(
-        data.filter(
-          (e) => e.startLocation === startLoc && e.endLocation === endLoc
-        )
-      );
-    }
+    setLoading(false);
   };
 
   return (
@@ -64,11 +76,15 @@ export default function SearchContainer() {
           className={styles.rideList}
           data-aos="fade-up"
         >
-          {results.map((result) => (
-            <ListGroupItem key={result.objectID}>
-              <SearchResult ride={result} />
-            </ListGroupItem>
-          ))}
+          {loading ? (
+            <h1>Loading...</h1>
+          ) : (
+            results.map((result) => (
+              <ListGroupItem key={result.objectID}>
+                <SearchResult ride={result} />
+              </ListGroupItem>
+            ))
+          )}
         </ListGroup>
       </Col>
     </Container>
