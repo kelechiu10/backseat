@@ -1,0 +1,21 @@
+.hero {
+  height: 70vh;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.heroLeft {
+  min-height: 100%;
+  background-color: yellow;
+
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroRight {
+  min-height: 100%;
+  background-color: green;
+}

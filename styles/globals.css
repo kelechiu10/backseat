@@ -14,3 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.rsCard {
+  background-color: white;
+  box-shadow: 3px 0px 10px #cfcfcf;
+  border: #cfcfcf 2px;
+  border-radius: 0.5rem;
+}

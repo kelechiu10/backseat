@@ -1,0 +1,9 @@
+.contactPage {
+  height: 40rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: linear-gradient(to bottom, #fafafa 0%, #67ec8f 100%);
+}
