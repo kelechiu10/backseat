@@ -4,7 +4,7 @@ import EditModal from "./EditModal";
 import axios from "axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-export default function NextRideCard({ ride }) {
+export default function NextRideCard({ userInfo, ride }) {
   console.log("NextRideCard debug:", ride);
   return (
     <Container className="rsCard p-2">
@@ -34,7 +34,7 @@ export default function NextRideCard({ ride }) {
             </Col>
           </Row>
           <Row className="justify-content-center mx-auto">
-            <EditModal ride={ride} />
+            <EditModal userInfo={userInfo} ride={ride} />
             <Button
               variant="outline-danger"
               className="ml-4"

@@ -2,7 +2,7 @@ import axios from "axios";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 
-export default function EditModal({ ride }) {
+export default function EditModal({ userInfo, ride }) {
   const [show, setShow] = useState(false);
   const [startLoc, setStartLoc] = useState("");
   const [endLoc, setEndLoc] = useState("");
@@ -12,8 +12,8 @@ export default function EditModal({ ride }) {
 
   const handleClick = async () => {
     await axios.post("https://8bedfcf472d6.ngrok.io/rides", {
-      rideID: ride.rideID,
-      sharerUid: ride.sharerUid,
+      rideID: userInfo.rideID,
+      sharerUid: userInfo.sharerUid,
       startLocation: startLoc,
       endLocation: endLoc,
       maxOccupancy: maxOcc,
@@ -23,8 +23,6 @@ export default function EditModal({ ride }) {
     setMaxOcc("");
     toggleShow();
   };
-
-  console.log("Editmodal debug:", ride);
 
   return (
     <>
