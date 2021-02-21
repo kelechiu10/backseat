@@ -1,6 +1,6 @@
 [
   {
-    "objectID": 1,
+    "rideID": 1,
     "sharerUid": "12345",
     "sharerName": "John Smith",
     "startLocation": "Whoknows",
@@ -10,7 +10,7 @@
     "maxOccupancy": 2
   },
   {
-    "objectID": 2,
+    "rideID": 2,
     "sharerUid": "12346",
     "sharerName": "Jane Doe",
     "startLocation": "Whoknows",
@@ -20,7 +20,7 @@
     "maxOccupancy": 3
   },
   {
-    "objectID": 3,
+    "rideID": 3,
     "sharerUid": "12347",
     "sharerName": "Jane Smith",
     "startLocation": "Far",
@@ -30,7 +30,7 @@
     "maxOccupancy": 5
   },
   {
-    "objectID": 4,
+    "rideID": 4,
     "sharerUid": "12348",
     "sharerName": "John Doe",
     "startLocation": "Near",
@@ -40,7 +40,7 @@
     "maxOccupancy": 2
   },
   {
-    "objectID": 5,
+    "rideID": 5,
     "sharerUid": "12345",
     "sharerName": "John Smith",
     "startLocation": "Whoknows",
@@ -50,7 +50,7 @@
     "maxOccupancy": 2
   },
   {
-    "objectID": 6,
+    "rideID": 6,
     "sharerUid": "12346",
     "sharerName": "Jane Doe",
     "startLocation": "Whoknows",
@@ -60,7 +60,7 @@
     "maxOccupancy": 3
   },
   {
-    "objectID": 7,
+    "rideID": 7,
     "sharerUid": "12347",
     "sharerName": "Jane Smith",
     "startLocation": "Whoknows",
@@ -70,7 +70,7 @@
     "maxOccupancy": 5
   },
   {
-    "objectID": 8,
+    "rideID": 8,
     "sharerUid": "12348",
     "sharerName": "John Doe",
     "startLocation": "Some",

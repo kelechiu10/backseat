@@ -1,6 +1,6 @@
 import styles from "./SearchResult.module.css";
 import Image from "next/image";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 
 export default function SearchResult({ ride }) {
   return (
@@ -30,6 +30,9 @@ export default function SearchResult({ ride }) {
         <p>
           <b>Leaves at:</b> {ride.departureTime}
         </p>
+      </Col>
+      <Col xs={1}>
+        <Button variant="outline-success">Join</Button>
       </Col>
     </Row>
   );

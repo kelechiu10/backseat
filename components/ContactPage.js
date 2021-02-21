@@ -4,7 +4,7 @@ import { Container, Col, Form, Button } from "react-bootstrap";
 export default function ContactPage() {
   return (
     <Container fluid className={styles.contactPage}>
-      <Col sm={8} md={6} className="rsCard p-5 mx-auto">
+      <Col sm={8} md={6} className="rsCard p-5 mx-auto" data-aos="fade-up">
         <Form>
           <Form.Row>
             <Col>

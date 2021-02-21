@@ -1,12 +1,12 @@
 .hero {
-  height: 70vh;
+  height: 80vh;
   display: flex;
   flex-direction: row-reverse;
 }
 
 .heroLeft {
   min-height: 100%;
-  background-color: yellow;
+  background-color: #67ec8f;
 
   text-align: left;
 
@@ -17,5 +17,11 @@
 
 .heroRight {
   min-height: 100%;
-  background-color: green;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(to bottom, #fafafa 0%, #67ec8f 100%);
 }
