@@ -2,23 +2,20 @@ const express = require('express')
 const config = require('./config')
 const server = express()
 const cors = require('cors')
-//const router = require('./api')
 
 const ridesRouter = require('./api/rides')
-const homeRouter = require('./api/index')
-const contactRouter = require('./api/contact')
+const usersRouter = require('./api/users')
+
+server.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*") // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next()
+})
 server.use(express.json())
-server.use(express.urlencoded({ extended: true}))
-//server.use('/api', router)
+server.use(express.urlencoded({ extended: true})) 
 
 server.use('/rides', ridesRouter)
-server.use('/',homeRouter)
-server.use('/contact', contactRouter)
-/*
-server.get('/', (req, res) => {
-    //get the homepage
-    res.send('Big money moves yes')
-})*/
+server.use('/users', usersRouter)
 
 server.listen(config.PORT, ()=> {
     console.log('App listening at https://localhost:' + config.PORT)

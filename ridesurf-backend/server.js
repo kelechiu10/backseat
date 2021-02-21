@@ -1,4 +1,4 @@
-// Create express app
+/*// Create express app
 var express = require("express")
 var app = express()
 
@@ -18,4 +18,4 @@ app.get("/", (req, res, next) => {
 // Default response for any other request
 app.use(function(req, res){
     res.status(404);
-});
+}); */
