@@ -30,9 +30,7 @@ router.post('/', (req, res) => {
         const docRef = db.collection('rides').doc(req.body.rideID)
         docRef.set(req.body)
         
-        //db.collection('users').doc(user_id).set({foo:'bar'}, {merge: true})
         const usersRef = db.collection('users').doc(req.body.sharerUid)
-        if(usersRef)
         usersRef.set({
             sharerUid: req.body.sharerUid,
             rides: FieldValue.arrayUnion(req.body.rideID)},
@@ -64,17 +62,21 @@ router.put('/', async (req, res) => {
     // need the id of the person as well as the ID of the requested ride in order to be added
     
     // TODO: Given the ID and other fields from the request, update the corresponding item in our database.
-    res.status(200).send("completed update");
+    res.status(200).send("completed update")
 })
 
 /* DELETE ride listing */
 router.delete('/', (req, res) => {
     const params = req.body;
     // verifying that id is in the request
-    if (!params.id) {
-        res.status(400).send("missing id in the request")
-        return
+    if (params.rideID) {
+        db.collection('rides').doc(params.rideID).delete()
+        db.collection('users').doc(params.sharerUid).update({
+            rides: FieldValue.arrayRemove(req.body.rideID)
+        })
+        res.status(200).send("completed delete")
     }
+
 })
 
 module.exports = router
