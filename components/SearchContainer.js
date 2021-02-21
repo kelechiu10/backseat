@@ -1,7 +1,7 @@
 import styles from "./SearchContainer.module.css";
 import SearchResult from "./SearchResult";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Container,
   Col,
@@ -10,47 +10,67 @@ import {
   ListGroupItem,
   InputGroup,
   FormControl,
+  Spinner,
 } from "react-bootstrap";
 
+const ax = axios.create({
+  baseUrl: "https://8bedfcf472d6.ngrok.io/",
+});
+
 import data from "../data/data.json";
-const ngrokURL = "https://8bedfcf472d6.ngrok.io/";
 
 export default function SearchContainer() {
   const [loading, setLoading] = useState(false);
+
+  const [rideID, setRideID] = useState(0);
+
   const [startLoc, setStartLoc] = useState("");
   const [endLoc, setEndLoc] = useState("");
-  const [results, setResults] = useState(data);
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    console.log("mounting");
+    const preloadData = async () => {
+      let data = await getData();
+      setResults(data);
+    };
+    preloadData();
+    return () => {
+      console.log("unmounting");
+    };
+  }, []);
+
+  const getData = async () => {
+    const response = await axios.get("https://8bedfcf472d6.ngrok.io/rides");
+    return response.data;
+  };
 
   const handleFind = async () => {
-    setLoading(true);
-    axios
-      .get("https://8bedfcf472d6.ngrok.io/rides")
-      .then((response) => {
-        let res = response.data;
-        if (!startLoc && !endLoc) {
-          setResults(res);
-        } else if (!endLoc) {
-          setResults(res.filter((e) => e.startLocation === startLoc));
-        } else if (!startLoc) {
-          setResults(res.filter((e) => e.endLocation === endLoc));
-        } else {
-          setResults(
-            res.filter(
-              (e) => e.startLocation === startLoc && e.endLocation === endLoc
-            )
-          );
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        setResults([]);
-      });
+    //setLoading(true);
+    let res = await getData();
 
-    setLoading(false);
+    let startLocContained = (e) =>
+      e.startLocation.toLowerCase().includes(startLoc.toLowerCase());
+    let endLocContained = (e) =>
+      e.endLocation.toLowerCase().includes(endLoc.toLowerCase());
+
+    if (!startLoc && !endLoc) {
+      setResults(res);
+    } else if (!endLoc) {
+      setResults(res.filter((e) => startLocContained(e)));
+    } else if (!startLoc) {
+      setResults(res.filter((e) => endLocContained(e)));
+    } else {
+      setResults(res.filter((e) => startLocContained(e) && endLocContained(e)));
+    }
+    //setLoading(false);
   };
 
   return (
-    <Container className={styles.searchContainer + " rsCard p-4"}>
+    <Container
+      className={styles.searchContainer + " rsCard p-4"}
+      onLoad={handleFind}
+    >
       <Col>
         <Col sm={10} md={6} className="mx-auto py-3">
           <InputGroup>
@@ -77,7 +97,9 @@ export default function SearchContainer() {
           data-aos="fade-up"
         >
           {loading ? (
-            <h1>Loading...</h1>
+            <Col className={styles.loading}>
+              <Spinner animation="border" variant="success" />
+            </Col>
           ) : (
             results.map((result) => (
               <ListGroupItem key={result.objectID}>

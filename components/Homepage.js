@@ -12,7 +12,7 @@ export default function Homepage() {
             <Image src="/sedan.png" width={256} height={256} />
           </Col>
           <Col sm={12} md={6} className={styles.heroLeft + " pl-5"}>
-            <h1 data-aos="fade-right">Welcome to Ridesurf!</h1>
+            <h1 data-aos="fade-right">Welcome to Backseat!</h1>
             <p className="lead" data-aos="fade-right">
               We make it easy for you to share and join rides with others. Ready
               to try?
@@ -20,7 +20,9 @@ export default function Homepage() {
             <br />
             <Col md={4} sm={8} className="p-0">
               <Link href="/rides">
-                <Button variant="success">Get Started</Button>
+                <Button variant="success" size="lg">
+                  Get Started
+                </Button>
               </Link>
             </Col>
           </Col>

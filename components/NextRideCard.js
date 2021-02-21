@@ -1,8 +1,11 @@
 import styles from "./NextRideCard.module.css";
 import Image from "next/image";
+import EditModal from "./EditModal";
+import axios from "axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-export default function NextRideCard({ nextRide }) {
+export default function NextRideCard({ ride }) {
+  console.log("NextRideCard debug:", ride);
   return (
     <Container className="rsCard p-2">
       <Row>
@@ -31,10 +34,16 @@ export default function NextRideCard({ nextRide }) {
             </Col>
           </Row>
           <Row className="justify-content-center mx-auto">
-            <Button variant="outline-secondary" className="mr-4">
-              Edit
-            </Button>
-            <Button variant="outline-danger" className="ml-4">
+            <EditModal ride={ride} />
+            <Button
+              variant="outline-danger"
+              className="ml-4"
+              onClick={async () =>
+                await axios.delete("https://8bedfcf472d6.ngrok.io/rides", {
+                  rideID: ride.rideID,
+                })
+              }
+            >
               Cancel
             </Button>
           </Row>

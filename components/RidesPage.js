@@ -1,25 +1,26 @@
 import styles from "./RidesPage.module.css";
 import NextRideCard from "./NextRideCard";
+import RideModal from "./ScheduleModal";
 import SearchContainer from "./SearchContainer";
 import moment from "moment";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 const clock = moment();
-const ax = axios();
 
 export default function RidesPage({ userInfo }) {
+  console.log("ridespage debug:", userInfo.rides);
+
   const [timeLeft, setTimeLeft] = useState(
     userInfo.rides ? clock.toNow(userInfo.rides[0]) : ""
   );
 
-  useEffect(() =>
+  /*useEffect(() =>
     setInterval(() => {
       console.log("Ran useEffect");
       setTimeLeft(userInfo.rides ? clock.toNow(userInfo.rides[0]) : "");
     }, 5000)
-  );
+  );*/
 
   return (
     <>
@@ -27,17 +28,14 @@ export default function RidesPage({ userInfo }) {
         <Row>
           {/* Conditional rendering if logged in and has existing ride, otherwise prompt for ride creation */}
           <Container className={styles.nextRideContainer}>
-            {userInfo.rides ? (
-              <>
-                <Col md={6} sm={10} data-aos="zoom-in">
-                  <NextRideCard />
-                </Col>{" "}
-              </>
-            ) : (
-              <>
-                <h2>Schedule a new ride now!</h2>
-              </>
-            )}
+            <Col md={6} sm={10} data-aos="zoom-in">
+              {userInfo.rides ? (
+                <NextRideCard ride={userInfo.rides[0]} />
+              ) : (
+                <h2>You don't have any rides. Schedule one now!</h2>
+              )}
+              <RideModal ride={userInfo.rides[0]} />
+            </Col>
           </Container>
         </Row>
         <Row>

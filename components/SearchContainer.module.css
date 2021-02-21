@@ -8,6 +8,14 @@
 }
 
 .searchContainer .rideList {
+  min-height: 10rem;
   max-height: 30rem;
   overflow-y: scroll;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
