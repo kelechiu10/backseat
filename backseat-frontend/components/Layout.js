@@ -129,7 +129,20 @@ export default function Layout({ children }) {
 
           <footer className={styles.layoutFooter}>
             Made with lack of 💤😴 using React and Next.js by Andrew Wang,
-            Kelechi Uhegbu, and Manseej Khatri
+            Kelechi Uhegbu, and Manseej Khatri.
+            <div>
+              Icons made by{" "}
+              <a
+                href="https://www.flaticon.com/authors/pixel-perfect"
+                title="Pixel perfect"
+              >
+                Pixel perfect
+              </a>{" "}
+              from{" "}
+              <a href="https://www.flaticon.com/" title="Flaticon">
+                www.flaticon.com
+              </a>
+            </div>
           </footer>
         </Container>
       </FirebaseAuthProvider>
